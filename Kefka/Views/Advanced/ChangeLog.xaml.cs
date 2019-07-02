@@ -16,7 +16,7 @@ namespace Kefka.Views.Advanced
 
         private void BindLatestFeeds()
         {
-            string url = "https://github.com/newb23/Omnicode/commits/master.atom";
+            string url = "https://github.com/CimmeriaCode/Kefka/commits/master.atom";
             var rssService = new RssService(url);
 
             icFeeds.ItemsSource = rssService.GetLatest();

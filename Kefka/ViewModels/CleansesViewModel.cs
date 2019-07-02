@@ -114,7 +114,7 @@ namespace Kefka.ViewModels
                     return JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Status>>(File.ReadAllText(statusListDir));
                 }
 
-                var json = new WebClient().DownloadString("https://api.xivdb.com/status?columns=id,name");
+                var json = new WebClient().DownloadString("https://xivapi.com/status?limit=3000");
 
                 var tempStatusCollection = JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Status>>(json);
 

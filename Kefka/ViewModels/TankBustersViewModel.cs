@@ -124,30 +124,29 @@ namespace Kefka.ViewModels
         {
             get
             {
-                var actionListDir = @"Settings/" + Me.Name + "/Kefka/ActionList.json";
+                //var actionListDir = @"Settings/" + Me.Name + "/Kefka/ActionList.json";
 
-                //ToDo: Figure out a better solution for auto-XIVDB downloading.
+                ////ToDo: Figure out a better solution for auto-XIVDB downloading.
 
-                var json = new WebClient().DownloadString("https://api.xivdb.com/action?columns=id,name,classjob");
+                //var json = new WebClient().DownloadString("https://xivapi.com/action?limit=3000");
+                //var tempActionCollection = JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Action>>(json);
 
-                var tempActionCollection = JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Action>>(json);
+                //var data = JsonConvert.SerializeObject(tempActionCollection, Formatting.Indented);
+                //File.WriteAllText(actionListDir, data);
 
-                var data = JsonConvert.SerializeObject(tempActionCollection, Formatting.Indented);
-                File.WriteAllText(actionListDir, data);
+                //var tempCollection = new ThreadSafeObservableCollection<Action>();
 
-                var tempCollection = new ThreadSafeObservableCollection<Action>();
+                //foreach (var action in tempActionCollection)
+                //{
+                //    if (!action.HasClassJob && !action.Name.Any(x => char.IsLetter(x) && !(x >= 63 && x <= 126)))
+                //    {
+                //        tempCollection.Add(action);
+                //    }
+                //}
 
-                foreach (var action in tempActionCollection)
-                {
-                    if (!action.HasClassJob && !action.Name.Any(x => char.IsLetter(x) && !(x >= 63 && x <= 126)))
-                    {
-                        tempCollection.Add(action);
-                    }
-                }
+                //var jsonString = JsonConvert.SerializeObject(tempCollection);
 
-                var jsonString = JsonConvert.SerializeObject(tempCollection);
-
-                return JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Action>>(jsonString);
+                return new ThreadSafeObservableCollection<Action>(); //return JsonConvert.DeserializeObject<ThreadSafeObservableCollection<Action>>(jsonString);
             }
         }
 

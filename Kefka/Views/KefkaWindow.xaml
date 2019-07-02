@@ -664,7 +664,7 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition />
+                                <ColumnDefinition Width="Auto" />
                             </Grid.ColumnDefinitions>
                             <Viewbox Width="40" Height="40">
                                 <Canvas Width="500" Height="600">
